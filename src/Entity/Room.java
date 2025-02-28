@@ -1,12 +1,16 @@
 package Entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Room implements CloneableGameEntity{
     private String roomName;
     private String roomDescription;
     private List<String> traps;
+    //added clonecounter for count how many time cloned uniq object.
+    private static Map<String, Integer> cloneCounter = new HashMap<>();
 
     public Room(String roomName, String roomDescription) {
         this.roomName = roomName;
@@ -51,8 +55,12 @@ public class Room implements CloneableGameEntity{
 
     @Override
     public Room cloneEntity() {
-        Room clonedRoom = new Room(this.roomName + " (Clone)", this.roomDescription);
+        cloneCounter.put(roomName, cloneCounter.getOrDefault(roomName, 0) + 1);
+        int cloneNumber = cloneCounter.get(roomName);
+        Room clonedRoom = new Room(this.roomName + " (Clone) #" + cloneNumber , this.roomDescription);
         clonedRoom.traps = new ArrayList<>(this.traps);
         return clonedRoom;
+
+
     }
 }
