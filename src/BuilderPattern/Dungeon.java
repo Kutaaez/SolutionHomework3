@@ -36,7 +36,7 @@ public class Dungeon {
         return dungeonNPCs;
     }
 
-    public void setDunegonNPCs(List<NPC> dunegonNPCs) {
+    public void setDungeonNPCs(List<NPC> dunegonNPCs) {
         this.dungeonNPCs = dunegonNPCs;
     }
 

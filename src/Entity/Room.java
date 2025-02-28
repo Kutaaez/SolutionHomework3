@@ -32,6 +32,6 @@ public class Room implements CloneableGameEntity{
 
     @Override
     public Room cloneEntity() {
-        return new Room(this.getRoomName(),this.roomDescription);
+        return new Room(this.roomName + " (Clone)", this.roomDescription);
     }
 }

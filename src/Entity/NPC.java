@@ -45,6 +45,6 @@ public class NPC implements CloneableGameEntity
     @Override
     public NPC cloneEntity() {
 
-        return new NPC(this.npcName,this.npcDescription,this.getNpcHealth());
+        return new NPC(this.npcName + " (Clone)", this.npcDescription, this.npcHealth);
     }
 }

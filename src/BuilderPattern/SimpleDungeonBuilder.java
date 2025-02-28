@@ -28,8 +28,33 @@ public class SimpleDungeonBuilder implements IDungeonBuilder {
 
     @Override
     public void addNPC(NPC npc) {
-npcs.add(npc);
+        npcs.add(npc);
     }
+    public void addCloneNPC(NPC npc){
+        npcs.add(npc.cloneEntity());
+    }
+    public void addCloneRoom(Room room){
+        rooms.add(room.cloneEntity());
+    }
+    public Room getRoom(int index) {
+        if (index >= 0 && index < rooms.size()) {
+            return rooms.get(index);
+        }
+        return null;
+    }
+    public NPC getNpc(int index) {
+        if (index >= 0 && index < rooms.size()) {
+            return npcs.get(index);
+        }
+        return null;
+    }
+    public String getName() {
+        return name;
+    }
+
+
+
+
 
     @Override
     public Dungeon build() {
