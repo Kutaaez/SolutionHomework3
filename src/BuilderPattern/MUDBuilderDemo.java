@@ -15,6 +15,9 @@ public class MUDBuilderDemo {
                 //adding npcs;
         builder.addNPC(new NPC("Goblin", "A small but dangerous creature.", 50));
         builder.addNPC(new NPC("Dragon", "A mighty beast guarding the treasure!", 500));
+                //adding traps;
+        builder.addTrap("Spike floor");
+        builder.addTrap("Arrow trap");
         //creating dungeon;
         Dungeon dungeon = builder.build();
 

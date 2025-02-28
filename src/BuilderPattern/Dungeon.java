@@ -3,17 +3,19 @@ package BuilderPattern;
 import Entity.NPC;
 import Entity.Room;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dungeon {
     private String dungeonName;
     private List<Room> dungeonRooms;
     private List<NPC> dungeonNPCs;
-
-    public Dungeon(String dungeonName, List<Room> dungeonRooms, List<NPC> dunegonNPCs) {
+    private List<String> dungeonTraps;
+    public Dungeon(String dungeonName, List<Room> dungeonRooms, List<NPC> dunegonNPCs, List<String> dungeonTraps) {
         this.dungeonName = dungeonName;
         this.dungeonRooms = dungeonRooms;
         this.dungeonNPCs = dunegonNPCs;
+        this.dungeonTraps = dungeonTraps;
     }
 
     public String getDungeonName() {
@@ -42,15 +44,21 @@ public class Dungeon {
 
     @Override
     public String toString() {
-        String result = "Dungeon: " + dungeonName;
-        result+= "\nRooms in the dungeon:\n";
+        String result = "+ + + Dungeon: " + dungeonName;
+        result+= " + + + \n- - - Rooms in the dungeon: - - - \n";
             for (int i = 0; i < dungeonRooms.size(); i++) {
                 result+=(i+1) +". " + dungeonRooms.get(i) + "\n";
             }
-            result+="\nNPCs in the dungeon:\n";
+            result+="\n- - - NPCs in the dungeon: - - - \n";
             for (int i = 0; i < dungeonNPCs.size(); i++) {
                 result+=(i+1) +". " + dungeonNPCs.get(i) + "\n";
             }
+            result+="- - - Traps!!: - - - \n";
+        for (int i = 0; i < dungeonTraps.size(); i++) {
+            result+=(i+1) +". " + dungeonTraps.get(i) + "\n";
+
+
+        }
         return result;
     }
 }

@@ -2,6 +2,7 @@ package BuilderPattern;
 
 import Entity.NPC;
 import Entity.Room;
+import com.sun.jdi.connect.Connector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +11,12 @@ public class SimpleDungeonBuilder implements IDungeonBuilder {
     private String name;
     private List<Room> rooms;
     private List<NPC> npcs;
+    private List<String> traps;
 
     public SimpleDungeonBuilder() {
         this.rooms = new ArrayList<>();
         this.npcs = new ArrayList<>();
+        this.traps = new ArrayList<>();
     }
 
     @Override
@@ -35,6 +38,9 @@ public class SimpleDungeonBuilder implements IDungeonBuilder {
     }
     public void addCloneRoom(Room room){
         rooms.add(room.cloneEntity());
+    }
+    public void addTrap(String trapDescription){
+        traps.add(trapDescription);
     }
     public Room getRoom(int index) {
         if (index >= 0 && index < rooms.size()) {
@@ -58,6 +64,6 @@ public class SimpleDungeonBuilder implements IDungeonBuilder {
 
     @Override
     public Dungeon build() {
-        return new Dungeon(name, new ArrayList<>(rooms), new ArrayList<>(npcs));
+        return new Dungeon(name, new ArrayList<>(rooms), new ArrayList<>(npcs), new ArrayList<>(traps));
     }
 }
