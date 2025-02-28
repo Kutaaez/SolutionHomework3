@@ -8,12 +8,12 @@ import java.util.List;
 public class Dungeon {
     private String dungeonName;
     private List<Room> dungeonRooms;
-    private List<NPC> dunegonNPCs;
+    private List<NPC> dungeonNPCs;
 
     public Dungeon(String dungeonName, List<Room> dungeonRooms, List<NPC> dunegonNPCs) {
         this.dungeonName = dungeonName;
         this.dungeonRooms = dungeonRooms;
-        this.dunegonNPCs = dunegonNPCs;
+        this.dungeonNPCs = dunegonNPCs;
     }
 
     public String getDungeonName() {
@@ -32,11 +32,25 @@ public class Dungeon {
         this.dungeonRooms = dungeonRooms;
     }
 
-    public List<NPC> getDunegonNPCs() {
-        return dunegonNPCs;
+    public List<NPC> getDungeonNPCs() {
+        return dungeonNPCs;
     }
 
     public void setDunegonNPCs(List<NPC> dunegonNPCs) {
-        this.dunegonNPCs = dunegonNPCs;
+        this.dungeonNPCs = dunegonNPCs;
+    }
+
+    @Override
+    public String toString() {
+        String result = "Dungeon: " + dungeonName;
+        result+= "\nRooms in the dungeon:\n";
+            for (int i = 0; i < dungeonRooms.size(); i++) {
+                result+=(i+1) +". " + dungeonRooms.get(i) + "\n";
+            }
+            result+="\nNPCs in the dungeon:\n";
+            for (int i = 0; i < dungeonNPCs.size(); i++) {
+                result+=(i+1) +". " + dungeonNPCs.get(i) + "\n";
+            }
+        return result;
     }
 }

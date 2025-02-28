@@ -3,6 +3,7 @@ package BuilderPattern;
 import Entity.NPC;
 import Entity.Room;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleDungeonBuilder implements IDungeonBuilder {
@@ -10,14 +11,13 @@ public class SimpleDungeonBuilder implements IDungeonBuilder {
     private List<Room> rooms;
     private List<NPC> npcs;
 
-    public SimpleDungeonBuilder(String name, List<Room> rooms, List<NPC> npcs) {
-        this.name = name;
-        this.rooms = rooms;
-        this.npcs = npcs;
+    public SimpleDungeonBuilder() {
+        this.rooms = new ArrayList<>();
+        this.npcs = new ArrayList<>();
     }
 
     @Override
-    public void setDungeon(String name) {
+    public void setDungeonName(String name) {
         this.name = name;
     }
 
@@ -33,6 +33,6 @@ npcs.add(npc);
 
     @Override
     public Dungeon build() {
-        return new Dungeon(name,rooms,npcs);
+        return new Dungeon(name, new ArrayList<>(rooms), new ArrayList<>(npcs));
     }
 }
