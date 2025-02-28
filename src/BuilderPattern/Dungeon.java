@@ -53,12 +53,7 @@ public class Dungeon {
             for (int i = 0; i < dungeonNPCs.size(); i++) {
                 result+=(i+1) +". " + dungeonNPCs.get(i) + "\n";
             }
-            result+="- - - Traps!!: - - - \n";
-        for (int i = 0; i < dungeonTraps.size(); i++) {
-            result+=(i+1) +". " + dungeonTraps.get(i) + "\n";
 
-
-        }
         return result;
     }
 }
