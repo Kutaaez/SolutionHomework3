@@ -1,5 +1,7 @@
 package Entity;
 
+import prototype.CloneableGameEntity;
+
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,11 +1,13 @@
 package Entity;
 
+import prototype.CloneableGameEntity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Room implements CloneableGameEntity{
+public class Room implements CloneableGameEntity {
     private String roomName;
     private String roomDescription;
     private List<String> traps;
@@ -18,8 +20,9 @@ public class Room implements CloneableGameEntity{
         this.traps = new ArrayList<>();
 
     }
-    public void addTrap(String trap) {
+    public Room addTrap(String trap) {
         traps.add(trap);
+        return this;
     }
 
 

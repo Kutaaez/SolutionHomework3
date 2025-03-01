@@ -1,47 +1,53 @@
 package BuilderPattern;
 
+import Entity.Dungeon;
 import Entity.NPC;
 import Entity.Room;
-import com.sun.jdi.connect.Connector;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleDungeonBuilder implements IDungeonBuilder {
     private String name;
-    private List<Room> rooms;
-    private List<NPC> npcs;
-    private List<String> traps;
-
+    private final List<Room> rooms;
+    private final List<NPC> npcs;
     public SimpleDungeonBuilder() {
         this.rooms = new ArrayList<>();
         this.npcs = new ArrayList<>();
-        this.traps = new ArrayList<>();
+    }
+    public SimpleDungeonBuilder addTrapToRoom(int roomIndex, String trap) {
+        if (roomIndex >= 0 && roomIndex < rooms.size()) {
+            rooms.get(roomIndex).addTrap(trap);
+        }
+        return this;
     }
 
     @Override
-    public void setDungeonName(String name) {
+    public SimpleDungeonBuilder  setDungeonName(String name) {
         this.name = name;
+        return this;
     }
 
     @Override
-    public void addRoom(Room room) {
+    public SimpleDungeonBuilder addRoom(Room room) {
         rooms.add(room);
+        return this;
     }
 
     @Override
-    public void addNPC(NPC npc) {
+    public SimpleDungeonBuilder addNPC(NPC npc) {
         npcs.add(npc);
+        return this;
     }
-    public void addCloneNPC(NPC npc){
+    public SimpleDungeonBuilder addCloneNPC(NPC npc){
         npcs.add(npc.cloneEntity());
+        return this;
     }
-    public void addCloneRoom(Room room){
+    public SimpleDungeonBuilder addCloneRoom(Room room){
         rooms.add(room.cloneEntity());
+        return  this;
     }
-    public void addTrap(String trapDescription){
-        traps.add(trapDescription);
-    }
+
     public Room getRoom(int index) {
         if (index >= 0 && index < rooms.size()) {
             return rooms.get(index);
@@ -64,6 +70,6 @@ public class SimpleDungeonBuilder implements IDungeonBuilder {
 
     @Override
     public Dungeon build() {
-        return new Dungeon(name, new ArrayList<>(rooms), new ArrayList<>(npcs), new ArrayList<>(traps));
+        return new Dungeon(name, new ArrayList<>(rooms), new ArrayList<>(npcs));
     }
 }

@@ -1,13 +1,14 @@
 package BuilderPattern;
 
+import Entity.Dungeon;
 import Entity.NPC;
 import Entity.Room;
 
 public interface IDungeonBuilder {
 
-    public void setDungeonName(String name);
-    public void addRoom(Room room);
-    public void addNPC(NPC npc);
-    public Dungeon build();
+    IDungeonBuilder setDungeonName(String name);
+    IDungeonBuilder addRoom(Room room);
+    IDungeonBuilder addNPC(NPC npc);
+    Dungeon build();
 }
 

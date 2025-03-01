@@ -1,4 +1,7 @@
-package Entity;
+package demo;
+
+import Entity.NPC;
+import Entity.Room;
 
 public class MUDPrototypeDemo {
     public static void main(String[] args) {
